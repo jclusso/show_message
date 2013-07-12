@@ -1,7 +1,8 @@
 <% data.each do |m| %>
-  <div class="alert-box <%= m[:class] %> <%= "autohide" if options[:autohide] %>" style= "<%= (m != data.last) ? "margin-bottom:5px;" : "" %>">
+  <div class="alert-box <%= m[:class] %>" style= "<%= (m != data.last) ? "margin-bottom:5px;" : "" %>">
     <div class="message">
       <%= raw m[:message] %>
     </div>
   </div>
 <% end %>
+<div style="margin-top:#{options[:space]}px;"></div>

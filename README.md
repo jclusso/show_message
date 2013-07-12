@@ -19,13 +19,13 @@ Or install it yourself as:
 
 ## Usage
 
-Add this code where you want your error messages to be outputed to.
+Add this code where you want your error messages to be shown.
 
 ```erb
 <%= show_message %>
 ```
 
-Set an error in your controller
+Set a message in your controller.
 
 ```ruby
 class MyController
