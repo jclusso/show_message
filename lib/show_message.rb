@@ -1,5 +1,1 @@
-require "show_message/version"
-
-module ShowMessage
-  # Your code goes here...
-end
+require 'show_message/railtie' if defined? Rails
