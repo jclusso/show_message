@@ -1,7 +1,7 @@
 # ShowMessage
 
 [![Build Status](https://travis-ci.org/jclusso/show_message.png?branch=master)](https://travis-ci.org/jclusso/show_message)
-[![Code Climate](https://codeclimate.com/repos/51df6c497e00a4660f0070ea/badges/8965c37137b1ddcf785f/gpa.png)](https://codeclimate.com/repos/51df6c497e00a4660f0070ea/feed)
+[![Code Climate](https://codeclimate.com/github/jclusso/show_message.png)](https://codeclimate.com/github/jclusso/show_message)
 
 ## Installation
 
