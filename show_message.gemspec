@@ -7,8 +7,8 @@ Gem::Specification.new do |spec|
   spec.version       = ShowMessage::VERSION
   spec.authors       = ["Jarrett Lusso"]
   spec.email         = ["jarrett@graphicflash.com"]
-  spec.description   = %q{show-message makes it easy to output your flash[:success], flash[:error] or flash[:whatever] to the view using one simple helper.}
-  spec.summary       = %q{show-message makes it easy to output your flash[:success], flash[:error] or flash[:whatever] to the view using one simple helper.}
+  spec.description   = %q{show_message makes it easy to output your flash[:success], flash[:error] or flash[:whatever] to the view using one simple helper.}
+  spec.summary       = %q{show_message makes it easy to output your flash[:success], flash[:error] or flash[:whatever] to the view using one simple helper.}
   spec.homepage      = "http://github.com/jclusso/show_message"
   spec.license       = "MIT"
 

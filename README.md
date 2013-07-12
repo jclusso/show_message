@@ -19,7 +19,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Add this code where you want your error messages to be outputed to.
+
+```erb
+<%= show_message %>
+```
+
+Set an error in your controller
+
+```ruby
+class MyController
+  
+  def test_function
+    flash[:error] = "Some Error Message"
+  end
+
+end
+```
 
 ## Contributing
 
