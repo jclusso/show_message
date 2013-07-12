@@ -2,8 +2,8 @@ require 'show_message/view_helpers'
 
 module ShowMessage
   class Railtie < Rails::Railtie
-    initializer "show_message.view_helpers" do |app|
-      ActionView::Base.send :include, ViewHelpers
+    ActiveSupport.on_load(:action_view) do
+      ::ActionView::Base.send :include, ShowMessage::ViewHelpers
     end
   end 
 end
