@@ -35,8 +35,6 @@ module ShowMessage
       end
       class_mappings.each_key { |k| flash[k] = nil }
 
-      render partial: "show_message/show_message", locals: {data: data, options: options}
-
       data.each do |m|
         content_tag(:div, content_tag(:div, raw(m[:message])), 
                     class: "alert-box #{m[:class]} #{"autohide" if options[:autohide]}", 
