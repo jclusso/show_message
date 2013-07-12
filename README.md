@@ -19,21 +19,11 @@ Or install it yourself as:
 
 ## Usage
 
-Add this code where you want your messages to be shown. You will need to create some styles for the message box.
+Add this code where you want your messages to be shown. You will need to create some styles for the message box. 
+See further down for the HTML this outputs so you know how to style it.
 
 ```erb
 <%= show_message %>
-```
-
-Below is the message box HTML. You will need to create a few styles to make yours look pretty. 
-I left it free of styles since I was using Foundation. Most people probably want to style their own anyway.
-
-```html
-<div class="alert-box [the flash symbol will be here to]">
-    <div class="message">
-      Message gets outputed here.
-    </div>
-</div>
 ```
 
 Now, set a message in your controller. You can use :error, :success, :myCoolMessage or :whatever. You get the point. 
@@ -76,6 +66,19 @@ Lastly, I found the need to insert a margin below the message sometimes.
 ```erb
 <%= show_message(space: 10) %>
 <!-- will insert a 10px margin below -->
+```
+
+## show_message - HTML Output
+
+Below is HTML that show_message will output. You will need to create a few styles to make yours look nice. 
+I left it free of styles since I was using Zurb Foundation. I also figured most people would want to style their own anyway.
+
+```html
+<div class="alert-box [the flash symbol will be here to]">
+    <div class="message">
+      Message gets outputed here.
+    </div>
+</div>
 ```
 
 ## Contributing
