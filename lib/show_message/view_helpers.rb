@@ -35,7 +35,7 @@ module ShowMessage
       end
       class_mappings.each_key { |k| flash[k] = nil }
 
-      render :partial => "show_message/show_message", :locals => {data: data, options: options}
+      render partial: "show_message/show_message", locals: {data: data, options: options}
     end
 
   end
