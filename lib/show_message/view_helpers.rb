@@ -5,7 +5,6 @@ module ShowMessage
 
     scope = options[:id]
 
-
     if scope.present?
       flash_is_empty = false
       flash.keys.each do |k|
