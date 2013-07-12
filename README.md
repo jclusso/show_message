@@ -19,20 +19,34 @@ Or install it yourself as:
 
 ## Usage
 
-Add this code where you want your error messages to be shown.
+Add this code where you want your messages to be shown. You will need to create some styles for the message box.
 
 ```erb
 <%= show_message %>
 ```
 
-Set a message in your controller. You can use :error, :success, :myCoolMessage or :whatever. You get the point. 
+Below is the message box HTML. You will need to create a few styles to make yours look pretty. 
+I left it free of styles since I was using Foundation. Most people probably want to style their own anyway.
+
+```html
+<div class="alert-box [the flash symbol will be here to]">
+    <div class="message">
+      Message gets outputed here.
+    </div>
+</div>
+```
+
+Now, set a message in your controller. You can use :error, :success, :myCoolMessage or :whatever. You get the point. 
 The only thing you should not use is and "_". Read on to see why.
+
+Also, it you can set a single message as a String or multiple as an Array
 
 ```ruby
 class MyController
   
   def test_function
-    flash[:error] = "Some Error Message"
+    flash[:success] = "Some Success Message"
+    flash[:error] = ["Error Message 1", "Error Message 2"]
   end
 
 end
@@ -55,6 +69,13 @@ class MyController
   end
 
 end
+```
+
+Lastly, I found the need to insert a margin below the message sometimes.
+
+```erb
+<%= show_message(space: 10) %>
+<!-- will insert a 10px margin below -->
 ```
 
 ## Contributing
