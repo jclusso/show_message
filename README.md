@@ -1,7 +1,7 @@
 # ShowMessage
 
 [![Build Status](https://travis-ci.org/jclusso/show_message.png?branch=master)](https://travis-ci.org/jclusso/show_message)
-[![Code Climate](https://codeclimate.com/repos/51df6c497e00a4660f0070ea/badges/8965c37137b1ddcf785f/gpa.png)](https://codeclimate.com/repos/51df6c497e00a4660f0070ea/feed)
+[![Code Climate](https://codeclimate.com/github/jclusso/show_message.png)](https://codeclimate.com/github/jclusso/show_message)
 
 ## Installation
 
@@ -19,20 +19,24 @@ Or install it yourself as:
 
 ## Usage
 
-Add this code where you want your error messages to be shown.
+Add this code where you want your messages to be shown. You will need to create some styles for the message box. 
+See further down for the HTML this outputs so you know how to style it.
 
 ```erb
 <%= show_message %>
 ```
 
-Set a message in your controller. You can use :error, :success, :myCoolMessage or :whatever. You get the point. 
+Now, set a message in your controller. You can use :error, :success, :myCoolMessage or :whatever. You get the point. 
 The only thing you should not use is and "_". Read on to see why.
+
+Also, it you can set a single message as a String or multiple as an Array
 
 ```ruby
 class MyController
   
   def test_function
-    flash[:error] = "Some Error Message"
+    flash[:success] = "Some Success Message"
+    flash[:error] = ["Error Message 1", "Error Message 2"]
   end
 
 end
@@ -55,6 +59,26 @@ class MyController
   end
 
 end
+```
+
+Lastly, I found the need to insert a margin below the message sometimes.
+
+```erb
+<%= show_message(space: 10) %>
+<!-- will insert a 10px margin below -->
+```
+
+## show_message - HTML Output
+
+Below is HTML that show_message will output. You will need to create a few styles to make yours look nice. 
+I left it free of styles since I was using Zurb Foundation. I also figured most people would want to style their own anyway.
+
+```html
+<div class="alert-box [the flash symbol will be here to]">
+    <div class="message">
+      Message gets outputed here.
+    </div>
+</div>
 ```
 
 ## Contributing
