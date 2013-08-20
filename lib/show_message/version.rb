@@ -1,3 +1,3 @@
 module ShowMessage
-  VERSION = [0, 0, 3].join "."
+  VERSION = [0, 0, 4].join "."
 end
