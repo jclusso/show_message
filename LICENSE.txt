@@ -1,4 +1,4 @@
-Copyright (c) 2013 Jarrett Lusso
+Copyright (c) 2019 Jarrett Lusso
 
 MIT License
 

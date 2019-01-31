@@ -2,40 +2,30 @@ module ShowMessage
   module ViewHelpers
 
     def show_message(options = {})
+      scope = options[:id].to_s
 
-    scope = options[:id]
-
-    if scope.present?
-      flash_is_empty = false
-      flash.keys.each do |k|
-        puts k.to_s.index(scope.to_s).present?
-        flash_is_empty = true unless k.to_s.index(scope.to_s).present?
+      if scope.present? && flash.keys.none? { |k| k.to_s.include?(scope) }
+        return
       end
-      return if flash_is_empty
-    end
 
+      data = []
 
-    data = []
-
-    flash.each do |k, v|
-      f = flash[k]
-      if f.kind_of?(Array)
-        if f
-          f.each do |m|
-            data << {message: m, class: k.to_s.split("_").first}
+      flash.each do |key, value|
+        flash_type = key.to_s.split('_').first
+        if key.is_a?(Array)
+          value.each do |message|
+            data.push(message: message, class: flash_type)
           end
+        else
+          data.push(message: value, class: flash_type)
         end
-      else
-        if f
-          data << {message: v, class: k.to_s.split("_").first}
-        end                                         
+        flash.discard(key)
       end
 
-      flash.discard(k) 
+      render partial: 'show_message/show_message', locals: {
+        data: data, options: options
+      }
     end
-
-    render partial: "show_message/show_message", locals: {data: data, options: options}
-  end
 
   end
 end
