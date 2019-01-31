@@ -11,6 +11,7 @@ module ShowMessage
       data = []
 
       flash.each do |key, value|
+        next if scope.present? && !key.to_s.include?(scope)
         flash_type = key.to_s.split('_').first
         if key.is_a?(Array)
           value.each do |message|
