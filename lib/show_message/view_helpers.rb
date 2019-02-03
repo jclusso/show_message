@@ -8,7 +8,7 @@ module ShowMessage
         elsif options[:id] == false
           false
         else
-          options[:id]
+          options[:id].to_s
         end
       if scope.present? && flash.keys.none? { |k| k.to_s.include?(scope) }
         return
