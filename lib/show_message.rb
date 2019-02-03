@@ -6,12 +6,12 @@ end
 
 module ShowMessage
 
-  def show_message(type, message)
+  def show_message(type, message, id: true)
     flash_sym =
       if type.to_s.include?('_')
         type
       else
-        "#{type}_#{controller_name}"
+        id ? "#{type}_#{controller_name}" : type.to_s
       end
     flash[flash_sym] = message
   end

@@ -2,8 +2,14 @@ module ShowMessage
   module ViewHelpers
 
     def show_message(options = {})
-      scope = (options[:id] || controller_name).to_s
-
+      scope =
+        if options[:id].nil?
+          controller_name
+        elsif options[:id] == false
+          false
+        else
+          options[:id]
+        end
       if scope.present? && flash.keys.none? { |k| k.to_s.include?(scope) }
         return
       end
