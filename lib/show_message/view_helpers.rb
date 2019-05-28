@@ -19,7 +19,10 @@ module ShowMessage
       flash.each do |key, value|
         next if scope.present? && !key.to_s.include?(scope)
         next unless value
+
         flash_type = key.to_s.split('_').first
+        next unless flash_type.in? %w(success error warning info notice)
+
         if key.is_a?(Array)
           value.each do |message|
             data.push(message: message, class: flash_type)
