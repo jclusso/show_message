@@ -2,26 +2,22 @@ module ShowMessage
   module ViewHelpers
 
     def show_message(options = {})
-      scope =
-        if options[:id].nil?
-          controller_name
-        elsif options[:id] == false
-          false
-        else
-          options[:id].to_s
-        end
+      scope = options[:id].to_s
+
       if scope.present? && flash.keys.none? { |k| k.to_s.include?(scope) }
         return
       end
 
       data = []
+      message_keys = %w(success error warning info notice)
 
       flash.each do |key, value|
         next if scope.present? && !key.to_s.include?(scope)
+        next if scope.blank? && !key.in?(message_keys)
         next unless value
 
         flash_type = key.to_s.split('_').first
-        next unless flash_type.in? %w(success error warning info notice)
+        next unless flash_type.in?(message_keys)
 
         if key.is_a?(Array)
           value.each do |message|
