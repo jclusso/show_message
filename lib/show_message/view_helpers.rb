@@ -9,7 +9,7 @@ module ShowMessage
       end
 
       data = []
-      message_keys = %w(success error warning info notice)
+      message_keys = %w(success error warning info notice alert)
 
       flash.each do |key, value|
         next if scope.present? && !key.to_s.include?(scope)
