@@ -1,6 +1,6 @@
 # ShowMessage
 
-[![Build Status](https://badgen.net/badge/build/passing/green)]()
+[![Build Status](https://travis-ci.org/jclusso/show_message.svg?branch=master)](https://travis-ci.org/jclusso/show_message)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c6a49b6f39ffcad776cb/maintainability)](https://codeclimate.com/github/jclusso/show_message/maintainability)
 
 ## Installation
