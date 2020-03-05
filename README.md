@@ -26,16 +26,20 @@ See further down for the HTML this outputs so you know how to style it.
 <%= show_message %>
 ```
 
-Now, set a message in your controller. You can use :error, :success, :myCoolMessage or :whatever. You get the point.
-The only thing you should not use is and "_". Read on to see why.
+Now, set a message in your controller. You can use :success, :error, :warning,
+:info, :notice or :alert.
 
-Also, it you can set a single message as a String or multiple as an Array
+Also, you can set a single message as a String or multiple as an Array
 
 ```ruby
 class MyController
 
   def test_function
-    flash[:success] = "Some Success Message"
+    # short versions
+    show_success('Some Success Message')
+    show_error('Some Error Message')
+
+    show_message :success, 'Some Success Message'
   end
 
 end
@@ -45,7 +49,7 @@ Now, when using remote forms I came across the issue where I would have multiple
 This led to some issues so I added the ability to set an id on show_message
 
 ```erb
-<%= show_message(id: :create_object) %>
+<%= show_message(:create) %>
 ```
 
 There is a slight twist to setting the flash now. I use an "_" to find what I call "scoped" messages.
@@ -54,26 +58,34 @@ There is a slight twist to setting the flash now. I use an "_" to find what I ca
 class MyController
 
   def test_function
-    flash[:error_create_object] = "Some Error Message"
+    # short version
+    show_success_for(:create, 'Some Success Message')
+    show_error_for(:create, 'Some Error Message')
+
+    show_message :success, 'Some Success Message', id: :create
   end
 
 end
 ```
 
-Lastly, I found the need to insert a margin below the message sometimes.
+## Additional Options
+
+Currently supported options only include `class` which allows you to specify
+additional classes to be appended to the outermost div's classlist.
 
 ```erb
-<%= show_message(space: 10) %>
-<!-- will insert a 10px margin below -->
+<%= show_message(class: 'my-special-class my-second-special-class') %>
+<%= show_message(:create, class: 'my-special-class my-second-special-class') %>
 ```
 
 ## show_message - HTML Output
 
-Below is HTML that show_message will output. You will need to create a few styles to make yours look nice.
-I left it free of styles since I was using Zurb Foundation. I also figured most people would want to style their own anyway.
+Below is HTML that show_message will output. You will need to create a few
+styles to make yours look nice. The type of message (success, error, etc) will
+be appended to the outermost div's classlist.
 
 ```html
-<div class="alert-box [the flash symbol will be here to]">
+<div class="alert-box [success, info, error...]">
     <div class="message">
       Message gets outputed here.
     </div>
