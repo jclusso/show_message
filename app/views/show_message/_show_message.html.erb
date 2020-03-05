@@ -1,10 +1,7 @@
 <% data.each do |m| %>
-  <div class="alert-box <%= m[:class] %> <%= options[:classes] %>">
+  <div class="alert-box <%= m[:class] %> <%= options[:class] %>">
     <div class="message">
       <%= raw m[:message] %>
     </div>
   </div>
-<% end %>
-<% if options[:space].present? %>
-  <div style="margin-top:<%= options[:space] %>px;"></div>
 <% end %>
