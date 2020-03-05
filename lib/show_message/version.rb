@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module ShowMessage
-  VERSION = '1.2.1'.freeze
+  VERSION = '2.0.0'.freeze
 end
